@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-dark-bg text-foreground antialiased flex flex-col min-h-screen`}>
         <ModeProvider>
           <SyncMode />
-          <main className="flex-grow">
+          <main className="min-h-screen overflow-x-hidden">
             {children}
           </main>
           <Footer />

@@ -18,7 +18,7 @@ export default function EntryScreen() {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-hidden bg-[#03030a]">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-x-hidden bg-[#03030a]">
       {/* Ambient background glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-cyan-500/5 blur-[140px] rounded-full" />

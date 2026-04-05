@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, Hash, ExternalLink, Loader2 } from "lucide-react";
+import { Award, ExternalLink, Loader2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import CertificateModal from "./CertificateModal";
@@ -112,7 +112,7 @@ export default function CertificationsSection() {
 
             <div className="flex items-center gap-4 mb-6 relative">
               <div className="p-3 bg-white/5 rounded-xl border border-white/5 group-hover:border-cyan-500/30 transition-all">
-                <Hash className="w-5 h-5 text-gray-500 group-hover:text-cyan-400" />
+                <Award className="w-5 h-5 text-cyan-400 opacity-80" />
               </div>
             </div>
 

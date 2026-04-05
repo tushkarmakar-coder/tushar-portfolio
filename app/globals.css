@@ -13,6 +13,12 @@
   --neon-glow: rgba(0, 243, 255, 0.12);
 }
 
+html, body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -23,12 +29,11 @@ body {
   background-attachment: fixed;
   scroll-behavior: smooth;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
 }
 
 @layer components {
   .scene-container {
-    @apply min-h-screen flex flex-col justify-center py-32;
+    @apply min-h-screen min-h-[100dvh] flex flex-col justify-center py-32;
   }
 
   .glass-panel {
