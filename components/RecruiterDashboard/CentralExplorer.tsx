@@ -1,28 +1,22 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Hand, Database, FileSearch, Shield, Activity, HardDrive, Terminal, Settings } from "lucide-react";
+import { Hand, Shield, Terminal, Settings } from "lucide-react";
 import React from "react";
 
 interface CentralExplorerProps {
-  selectedSkill: string;
+  selectedCategory: string;
+  selectedItem: string;
 }
 
 const skillIcon: Record<string, React.ReactNode> = {
-  SQL: <Database className="w-8 h-8 text-cyan-400" />,
-  "SLA Compliance": <Shield className="w-8 h-8 text-emerald-400" />,
-  "P1/P2 Incident Handling": <Activity className="w-8 h-8 text-red-400" />,
-  "Escalation Handling": <HardDrive className="w-8 h-8 text-blue-400" />,
-  RCA: <FileSearch className="w-8 h-8 text-amber-400" />,
-  "REST API": <Terminal className="w-8 h-8 text-purple-400" />,
-  "Log Analysis": <FileSearch className="w-8 h-8 text-cyan-300" />,
-  JIRA: <Settings className="w-8 h-8 text-blue-300" />,
-  Cherwell: <Shield className="w-8 h-8 text-cyan-500" />,
-  "Oracle B2C": <Database className="w-8 h-8 text-amber-400" />,
+  "Incident Management": <Shield className="w-8 h-8 text-emerald-400" />,
+  "Technical Skills": <Terminal className="w-8 h-8 text-blue-400" />,
+  "Tools": <Settings className="w-8 h-8 text-cyan-400" />,
 };
 
-export default function CentralExplorer({ selectedSkill }: CentralExplorerProps) {
-  const icon = skillIcon[selectedSkill] || skillIcon["SQL"];
+export default function CentralExplorer({ selectedCategory, selectedItem }: CentralExplorerProps) {
+  const icon = skillIcon[selectedCategory] || skillIcon["Incident Management"];
 
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[500px] w-full mx-auto pointer-events-none select-none">
@@ -48,7 +42,7 @@ export default function CentralExplorer({ selectedSkill }: CentralExplorerProps)
       {/* Center Content */}
       <AnimatePresence mode="wait">
         <motion.div
-          key={selectedSkill}
+          key={selectedItem}
           initial={{ opacity: 0, scale: 0.8, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 1.1, y: -20 }}
@@ -71,13 +65,17 @@ export default function CentralExplorer({ selectedSkill }: CentralExplorerProps)
           </div>
 
           {/* Big Skill Name */}
-          <div className="text-center mt-2">
+          <div className="text-center mt-2 flex flex-col items-center justify-center">
             <span className="text-[10px] font-black text-cyan-500/50 uppercase tracking-[0.5em] block mb-3">
               Analyzing Capability
             </span>
-            <h2 className="text-3xl md:text-5xl font-black text-white tracking-widest uppercase leading-tight text-center max-w-[260px]">
-              {selectedSkill}
-            </h2>
+            <div className="flex flex-col items-center justify-center text-center">
+              {selectedItem.split(" ").map((word, index) => (
+                <div key={index} className="text-white font-black text-[clamp(24px,4vw,48px)] leading-[1.2] drop-shadow-[0_0_15px_rgba(34,211,238,0.5)] tracking-tight">
+                  {word}
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>

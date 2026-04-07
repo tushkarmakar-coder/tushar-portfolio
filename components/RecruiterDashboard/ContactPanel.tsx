@@ -99,13 +99,18 @@ export default function ContactPanel() {
           <div className="flex flex-col gap-1">
             <h4 className="text-xl font-black text-white leading-tight">Tushar Karmakar</h4>
             <span className="text-[10px] font-bold text-cyan-400/70 uppercase tracking-[0.35em]">
-              L2 Application Support Engineer
+              Incident Manager
             </span>
-            <div className="flex items-center gap-2 mt-1">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="text-[10px] text-emerald-400/80 font-bold uppercase tracking-widest">
-                Open to Opportunities
-              </span>
+            <div className="flex flex-col gap-1 mt-1">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-[10px] text-emerald-400/80 font-bold uppercase tracking-widest leading-relaxed">
+                  Open to Incident Manager, Major Incident Manager, and reliability-focused roles
+                </span>
+              </div>
+              <p className="text-xs text-gray-400 mt-2 italic leading-relaxed">
+                If you're building high-availability systems and need someone who can own incidents, reduce MTTR, and improve system stability — let’s connect.
+              </p>
             </div>
           </div>
         </div>

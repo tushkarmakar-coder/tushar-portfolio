@@ -1,18 +1,18 @@
 export const portfolioData = {
   personal: {
     name: "Tushar Karmakar",
-    title: "L2 Support Engineer & AI Content Strategist",
+    title: "Incident Manager & AI Content Strategist",
     experience: "6+ Years",
     location: "Noida, India",
     email: "tushkarmakar@gmail.com",
     linkedin: "https://linkedin.com/in/tushar-karmakar-255589102",
     summary:
-      "L2 Application Support Engineer with 6+ years of experience in incident management and ITIL operations. Parallelly, an AI Content & Web Solutions Creator focused on high-impact digital workflows and creative strategy.",
+      "Incident Manager with 6+ years of experience in incident management and ITIL operations. Parallelly, an AI Content & Web Solutions Creator focused on high-impact digital workflows and creative strategy.",
     interests: ["Incident Management", "Generative AI", "Operational Metrics", "Automation"],
   },
   experience: {
     company: "Infogain",
-    role: "L2 Application Support Engineer",
+    role: "Incident Manager",
     duration: "Jan 2020 – Present",
     achievements: [
       "Resolved 50+ incidents monthly with a consistent 95% SLA compliance rate.",

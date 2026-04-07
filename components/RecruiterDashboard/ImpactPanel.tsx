@@ -6,64 +6,20 @@ import { Database, FileSearch, Shield, Activity, HardDrive, Terminal, Settings }
 import React from "react";
 
 interface ImpactPanelProps {
-  selectedSkill: string;
+  selectedCategory: string;
+  selectedItem: string;
 }
 
-const skillData: Record<string, { usedFor: string[]; impact: string; icon: React.ReactNode }> = {
-  SQL: {
-    usedFor: ["Production issue debugging", "Data validation & investigation", "Log querying"],
-    impact: "Reduced RCA cycle time by 30%",
-    icon: <Database className="w-5 h-5 text-cyan-400" />,
-  },
-  "SLA Compliance": {
-    usedFor: ["Maintained 95% threshold", "Incident tracking & reporting", "Performance monitoring"],
-    impact: "Consistent high-tier compliance status",
-    icon: <Shield className="w-5 h-5 text-emerald-400" />,
-  },
-  "P1/P2 Incident Handling": {
-    usedFor: ["Managed critical production failures", "Coordinated cross-team bridge calls", "Stakeholder communication"],
-    impact: "Achieved ~25% reduction in MTTR",
-    icon: <Activity className="w-5 h-5 text-red-400" />,
-  },
-  "Escalation Handling": {
-    usedFor: ["Governance of high-tier tickets", "Vendor coordination", "Senior leadership reporting"],
-    impact: "Zero unplanned escalation breaches",
-    icon: <HardDrive className="w-5 h-5 text-blue-400" />,
-  },
-  RCA: {
-    usedFor: ["Root Cause Identification", "Bug fix coordination", "Defect tracking"],
-    impact: "Eliminated 10+ recurring production issues",
-    icon: <FileSearch className="w-5 h-5 text-amber-400" />,
-  },
-  "REST API": {
-    usedFor: ["API log analysis (Splunk/Postman)", "Integration troubleshooting", "Architecture monitoring"],
-    impact: "Optimization of platform communications",
-    icon: <Terminal className="w-5 h-5 text-purple-400" />,
-  },
-  "Log Analysis": {
-    usedFor: ["Stack trace debugging", "Server log interrogation", "Performance bottleneck ID"],
-    impact: "Proactive bug detection before user impact",
-    icon: <FileSearch className="w-5 h-5 text-cyan-300" />,
-  },
-  JIRA: {
-    usedFor: ["Ticketing lifecycle governance", "Agile sprint support", "SLA metrics tracking"],
-    impact: "Standardized operational reporting",
-    icon: <Settings className="w-5 h-5 text-blue-300" />,
-  },
-  Cherwell: {
-    usedFor: ["Asset management", "Incident lifecycles", "Service request handling"],
-    impact: "100% data integrity in ITSM tool",
-    icon: <Shield className="w-5 h-5 text-cyan-500" />,
-  },
-  "Oracle B2C": {
-    usedFor: ["Console administration", "Service management troubleshooting", "User workflow optimization"],
-    impact: "Expert-level enterprise console governance",
-    icon: <Database className="w-5 h-5 text-amber-400" />,
-  },
-};
+import { skillMatrixData } from "@/lib/skillMatrixData";
 
-export default function ImpactPanel({ selectedSkill }: ImpactPanelProps) {
-  const data = skillData[selectedSkill] || skillData["SQL"];
+export default function ImpactPanel({ selectedCategory, selectedItem }: ImpactPanelProps) {
+  const data = skillMatrixData[selectedCategory]?.[selectedItem] || skillMatrixData["Incident Management"]["Incident Management"];
+  
+  const getIcon = (category: string) => {
+    if (category === "Incident Management") return <Shield className="w-5 h-5 text-emerald-400" />;
+    if (category === "Technical Skills") return <Terminal className="w-5 h-5 text-blue-400" />;
+    return <Settings className="w-5 h-5 text-cyan-400" />;
+  };
 
   return (
     <motion.div
@@ -81,7 +37,7 @@ export default function ImpactPanel({ selectedSkill }: ImpactPanelProps) {
 
       <AnimatePresence mode="wait">
         <motion.div
-          key={selectedSkill}
+          key={selectedItem}
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
@@ -91,7 +47,7 @@ export default function ImpactPanel({ selectedSkill }: ImpactPanelProps) {
           {/* Impact Quote */}
           <div className="space-y-3">
             <div className="flex items-center gap-2 mb-2">
-              {data.icon}
+              {getIcon(selectedCategory)}
               <span className="text-[10px] font-bold text-gray-600 uppercase tracking-widest">
                 Key Result
               </span>
@@ -112,11 +68,11 @@ export default function ImpactPanel({ selectedSkill }: ImpactPanelProps) {
               Real-World Usage
             </span>
             <ul className="space-y-3">
-              {(data.usedFor || []).map((use, i) => (
+              {(data.usage || []).map((use, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
                   <Sparkles className="w-3 h-3 text-cyan-400/60 mt-0.5 shrink-0" />
                   <span>{use}</span>
-                </li>
+               </li>
               ))}
             </ul>
           </div>

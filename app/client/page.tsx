@@ -3,8 +3,8 @@
 import ClientDashboard from "@/components/ClientDashboard";
 import { useMode } from "@/lib/mode-context";
 import { useEffect } from "react";
-import LeftSidebar from "@/components/LeftSidebar";
-import ModeToggle from "@/components/ModeToggle";
+// [MOVED TO layout.tsx] import LeftSidebar from "@/components/LeftSidebar";
+// [MOVED TO layout.tsx] import ModeToggle from "@/components/ModeToggle";
 import { motion } from "framer-motion";
 
 export default function ClientPage() {
@@ -20,15 +20,17 @@ export default function ClientPage() {
   if (mode !== "client") return null;
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="relative min-h-screen bg-[#050508] overflow-x-hidden"
-    >
-      <LeftSidebar />
-      <ModeToggle />
-      <ClientDashboard />
-    </motion.main>
+    <>
+      {/* [MOVED TO layout.tsx] <LeftSidebar /> */}
+      {/* [MOVED TO layout.tsx] <ModeToggle /> */}
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative min-h-screen bg-[#050508] overflow-x-hidden"
+      >
+        <ClientDashboard />
+      </motion.main>
+    </>
   );
 }

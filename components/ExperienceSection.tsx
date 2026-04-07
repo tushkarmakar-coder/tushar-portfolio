@@ -52,7 +52,7 @@ export default function ExperienceSection() {
             <div>
               <h3 className="text-3xl md:text-5xl font-black text-white flex items-center gap-4">
                 Infogain 
-                <span className="text-sm font-bold text-cyan-500 bg-cyan-500/10 px-4 py-1 rounded-full uppercase tracking-widest">L2 Support</span>
+                <span className="text-sm font-bold text-cyan-500 bg-cyan-500/10 px-4 py-1 rounded-full uppercase tracking-widest">Incident Manager</span>
               </h3>
               <p className="text-gray-500 font-medium mt-2 tracking-widest uppercase">Jan 2020 — Present</p>
             </div>

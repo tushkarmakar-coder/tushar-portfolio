@@ -83,12 +83,12 @@ export default function HeroSection() {
         </h1>
         
         <h2 className="text-xl md:text-3xl font-medium text-gray-400 mb-10 tracking-widest uppercase">
-          {isRecruiter ? "L2 Application Support Engineer" : "I create high-impact AI content"}
+          {isRecruiter ? "Incident Manager | Owning High-Impact Production Systems" : "I create high-impact AI content"}
         </h2>
 
         <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-12">
           {isRecruiter 
-            ? "Ensuring system stability, resolving critical incidents, and improving reliability for enterprise platforms."
+            ? "Led resolution of 50+ monthly P1/P2 incidents at 95%+ SLA, reduced MTTR by ~25%, and improved system stability through RCA-driven problem management across enterprise SaaS platforms."
             : "Transforming digital presences through generative AI workflows, high-retention video assets, and strategic content curation."}
         </p>
 

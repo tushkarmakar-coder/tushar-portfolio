@@ -1,67 +1,87 @@
-import fs from 'fs';
-import path from 'path';
+
 
 export interface Certification {
   title: string;
   issuer: string;
-  fileName: string;
-  filePath: string;
+  status: "completed" | "in-progress";
+  proofLink?: string;
+  issuedDate?: string;
   badge?: string;
-  id?: string;
-  date?: string;
   type: 'pdf' | 'image';
+  fileName?: string;
+  filePath?: string;
 }
 
-const MAPPING: Record<string, { name: string; badge?: string }> = {
-  "Promptengineering": { name: "Prompt Engineering for ChatGPT" },
-  "IncidentManage": { name: "Incident Management" },
-  "GenAIBeg": { name: "Generative AI Beginner", badge: "Beginner.png" },
-  "GenAIFund": { name: "Generative AI Fundamentals", badge: "Fundamental.png" },
-  "GenAIPrac": { name: "Generative AI Practitioner", badge: "Practitioner.png" },
-};
-
 export async function getCertifications(): Promise<Certification[]> {
-  const certsDir = path.join(process.cwd(), 'public', 'data', 'certificates');
-  const badgeBaseUrl = '/data/badge/GEN-AI/';
-
-  if (!fs.existsSync(certsDir)) {
-    console.warn(`Certificates directory not found at ${certsDir}`);
-    return [];
-  }
-
-  const files = fs.readdirSync(certsDir);
-  
-  const certs: Certification[] = files.map(file => {
-    const ext = path.extname(file).toLowerCase();
-    const type: 'pdf' | 'image' = ext === '.pdf' ? 'pdf' : 'image';
-    
-    let title = file.split('.')[0]; // Default
-    let badge: string | undefined = undefined;
-
-    for (const [key, info] of Object.entries(MAPPING)) {
-      if (file.includes(key)) {
-        title = info.name;
-        if (info.badge) {
-          badge = `${badgeBaseUrl}${info.badge}`;
-        }
-        break;
-      }
-    }
-
-    // Try to extract ID if present in previous hardcoded data logic
-    // (In actual filenames provided, there weren't IDs, but I'll keep the structure)
-    
-    return {
-      title,
+  const certifications: Certification[] = [
+    {
+      title: "Generative AI Practitioner",
       issuer: "Infogain",
-      fileName: file,
-      filePath: `/data/certificates/${file}`,
-      badge,
-      type,
-      // For now, these are static as they aren't in the filename
-      date: "2025-2026", 
-    };
+      issuedDate: "2026",
+      status: "completed",
+      fileName: "GenAIPrac-Certificate-Tushar Karmakar.pdf",
+      badge: "/data/badge/GEN-AI/Practitioner.png",
+      type: "pdf"
+    },
+    {
+      title: "Prompt Engineering for ChatGPT",
+      issuer: "Infogain",
+      issuedDate: "2026",
+      status: "completed",
+      fileName: "PromptengineeringforChatGPT-Certificate.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Incident Management",
+      issuer: "Infogain",
+      issuedDate: "2026",
+      status: "completed",
+      fileName: "IncidentManagment-Certificate-Tushar.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Generative AI Fundamentals",
+      issuer: "Infogain",
+      issuedDate: "2025",
+      status: "completed",
+      fileName: "GenAIFund-Certificate-Tushar_20Karmakar.pdf",
+      badge: "/data/badge/GEN-AI/Fundamental.png",
+      type: "pdf"
+    },
+    {
+      title: "Generative AI Beginner",
+      issuer: "Infogain",
+      issuedDate: "2025",
+      status: "completed",
+      fileName: "GenAIBeg-Certificate-Tushar Karmakar.pdf",
+      badge: "/data/badge/GEN-AI/Beginner.png",
+      type: "pdf"
+    },
+    {
+      title: "ITIL v4 Foundation",
+      issuer: "Self-Learning",
+      status: "in-progress",
+      type: "image"
+    },
+    {
+      title: "AWS Cloud Practitioner",
+      issuer: "Self-Learning",
+      status: "in-progress",
+      type: "image"
+    }
+  ];
+
+  const processedCerts = certifications.map(cert => ({
+    ...cert,
+    proofLink: cert.fileName ? `/data/certificates/${encodeURIComponent(cert.fileName)}` : undefined,
+    filePath: cert.fileName ? `/data/certificates/${encodeURIComponent(cert.fileName)}` : undefined
+  }));
+
+  processedCerts.sort((a, b) => {
+    if (a.status === "completed" && b.status !== "completed") return -1;
+    if (a.status !== "completed" && b.status === "completed") return 1;
+    return 0;
   });
 
-  return certs;
+  return processedCerts;
 }

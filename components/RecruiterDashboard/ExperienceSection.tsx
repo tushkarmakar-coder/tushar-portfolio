@@ -5,16 +5,15 @@ import { Briefcase, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 export default function ExperienceSection() {
   const responsibilities = [
-    "Resolved 50+ monthly P1/P2 incidents with 95%+ SLA compliance, ensuring high system availability",
-    "Handled night shift production support (4+ years) as SPOC, managing incidents end-to-end",
-    "Managed end-to-end incident lifecycle from triage to resolution for critical issues",
-    "Reduced MTTR by ~25% by optimizing triage and escalation workflows",
-    "Led P1 major incident bridge calls, coordinating cross-functional teams",
-    "Resolved full-site outage within ~2 hours, minimizing business impact",
-    "Performed RCA and reduced recurring incidents by ~20–30%",
-    "Ensured timely resolution of client escalations and stakeholder communication",
-    "Performed REST API testing, SQL analysis, and backend log analysis",
-    "Coordinated release tracking and deployment in Agile/Scrum environment"
+    "Owned end-to-end incident lifecycle for enterprise SaaS platform",
+    "Resolved 50+ P1/P2 incidents/month @ 95% SLA",
+    "Reduced MTTR by ~25% via triage optimization",
+    "Led major incident bridge calls across cross-functional teams",
+    "Drove RCA reducing recurring incidents by 20–30%",
+    "Restored full outage within ~2 hours minimizing impact",
+    "Served as SPOC for 4+ years handling critical incidents",
+    "Debugged production issues using SQL, APIs, and logs",
+    "Supported Agile releases ensuring system stability"
   ];
 
   return (
@@ -42,7 +41,7 @@ export default function ExperienceSection() {
               <h3 className="text-4xl font-black text-white">Infogain</h3>
               <p className="text-xl font-bold text-cyan-400 tracking-widest uppercase flex items-center gap-3">
                 <Briefcase className="w-5 h-5" />
-                L2 Application Support Engineer
+                Incident Manager
               </p>
             </div>
             

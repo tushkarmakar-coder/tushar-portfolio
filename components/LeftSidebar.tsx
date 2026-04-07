@@ -12,7 +12,9 @@ import {
   Mail, 
   Layers, 
   FolderGit2, 
-  Tag 
+  Tag,
+  Activity,
+  FileText
 } from "lucide-react";
 
 export default function LeftSidebar() {
@@ -25,9 +27,11 @@ export default function LeftSidebar() {
   const recruiterNav = [
     { id: "home", label: "Home", icon: Home },
     { id: "about", label: "About", icon: User },
-    { id: "experience", label: "Experience", icon: Briefcase },
-    { id: "skills", label: "Skills", icon: Code },
+    { id: "performance", label: "Performance Matrix", icon: Activity },
+    { id: "skills", label: "My Skills", icon: Code },
+    { id: "experience", label: "Professional Experience", icon: Briefcase },
     { id: "achievements", label: "Achievements", icon: Award },
+    { id: "certifications", label: "Certifications", icon: FileText },
     { id: "contact", label: "Contact", icon: Mail },
   ];
 
@@ -83,7 +87,7 @@ export default function LeftSidebar() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="hidden md:flex fixed left-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-4 p-3 rounded-full border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)]"
+        className="hidden md:flex fixed left-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-2 p-2 rounded-[40px] border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)]"
         style={{
           background: "rgba(11, 15, 23, 0.65)",
           backdropFilter: "blur(12px)",
@@ -96,7 +100,7 @@ export default function LeftSidebar() {
             <div key={item.id} className="relative group">
               <button
                 onClick={() => scrollTo(item.id)}
-                className={`p-3 rounded-full transition-all duration-300 flex items-center justify-center relative ${
+                className={`p-2.5 rounded-full transition-all duration-300 flex items-center justify-center relative ${
                   isActive 
                     ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.3)] scale-110" 
                     : "text-gray-500 hover:text-cyan-400 hover:bg-white/5 border border-transparent scale-100"
@@ -118,7 +122,7 @@ export default function LeftSidebar() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.8 }}
-        className="md:hidden fixed bottom-6 left-6 right-6 z-[100] flex justify-between items-center px-6 py-4 rounded-3xl border border-cyan-500/40 shadow-[0_10px_40px_-10px_rgba(6,182,212,0.4)] backdrop-blur-xl gap-2"
+        className="md:hidden fixed bottom-6 left-6 right-6 z-[100] flex justify-center items-center px-3 py-4 rounded-3xl border border-cyan-500/40 shadow-[0_10px_40px_-10px_rgba(6,182,212,0.4)] backdrop-blur-xl gap-1"
         style={{
           background: "linear-gradient(135deg, rgba(8, 8, 20, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%)",
         }}
@@ -130,7 +134,7 @@ export default function LeftSidebar() {
             <button
               key={item.id}
               onClick={() => scrollTo(item.id)}
-              className={`p-3 rounded-2xl transition-all duration-300 flex-shrink-0 flex items-center justify-center relative ${
+              className={`p-2.5 rounded-2xl transition-all duration-300 flex items-center justify-center relative ${
                 isActive 
                   ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.4)] scale-110" 
                   : "text-gray-500 hover:text-white border border-transparent"

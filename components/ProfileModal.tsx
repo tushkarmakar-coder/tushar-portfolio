@@ -29,12 +29,41 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
   const isRecruiter = mode === "recruiter";
 
   const profileImage = isRecruiter ? "/profile/recruiter.png" : "/profile/client.png";
-  const role = isRecruiter ? "L2 Application Support Engineer" : "AI Content & Web Solutions Creator";
+  const role = isRecruiter ? "Incident Manager" : "AI Content & Web Solutions Creator";
 
   const recruiterData = {
-    summary: "L2 Application Support Engineer with 6+ years of experience in incident management and ITIL operations. Consistent track record of 95% SLA compliance, optimized MTTR, and robust production support across high-stakes enterprise environments.",
-    focusAreas: ["Incident Management", "SLA Compliance", "Root Cause Analysis (RCA)", "Production Support", "SQL Debugging", "API Monitoring"],
-    tools: ["SQL", "REST API", "Oracle B2C", "Jira", "Cherwell", "Postman"],
+    summary: (
+      <div className="space-y-6">
+        <p>Incident Manager with 6+ years of experience owning high-severity production environments for enterprise SaaS platforms (Oracle B2C Cloud).</p>
+        <p>I specialize in managing P1/P2 incidents, reducing MTTR, and improving system reliability through structured RCA and proactive problem management.</p>
+        <div className="space-y-3">
+          <h4 className="text-white font-bold not-italic">Key Impact:</h4>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>Owned 50+ monthly P1/P2 incidents with 95%+ SLA adherence</li>
+            <li>Reduced MTTR by ~25% through triage and escalation optimization</li>
+            <li>Eliminated 20–30% recurring incidents using RCA-driven improvements</li>
+            <li>Led major incident bridge calls across Dev, QA, Infra, and Business teams</li>
+            <li>Restored full-site outages within ~2 hours minimizing business impact</li>
+            <li>Served as sole SPOC for 4+ years in high-pressure production environments</li>
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h4 className="text-white font-bold not-italic">Technical Strength:</h4>
+          <ul className="list-disc pl-5 space-y-2">
+            <li>SQL-based debugging and data validation</li>
+            <li>REST API diagnostics and monitoring</li>
+            <li>Backend log analysis for root cause identification</li>
+            <li>Oracle B2C Cloud production support</li>
+          </ul>
+        </div>
+        <div className="space-y-3">
+          <h4 className="text-white font-bold not-italic">Approach:</h4>
+          <p>I focus on system reliability, incident ownership, and reducing production risk — not just resolving tickets but preventing failures at scale.</p>
+        </div>
+      </div>
+    ),
+    focusAreas: ["Incident Ownership", "System Reliability", "SLA & MTTR Optimization", "Root Cause Analysis (RCA)", "Production Stability", "API & Log Debugging"],
+    tools: ["SQL", "REST API", "JSON", "Backend Log Analysis", "Oracle B2C Cloud", "ServiceNow", "JIRA", "Cherwell"],
     impact: [
       { label: "Incidents", value: "50+", sub: "/ month" },
       { label: "SLA", value: "95%", sub: "compliance" },
@@ -167,9 +196,9 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                   <h3 className="text-lg font-black text-white uppercase tracking-widest flex items-center gap-4">
                     About <span className="h-px bg-white/10 flex-1" />
                   </h3>
-                  <p className="text-gray-400 text-lg leading-relaxed italic font-light drop-shadow-sm">
+                  <div className="text-gray-400 text-lg leading-relaxed italic font-light drop-shadow-sm">
                     {currentData.summary}
-                  </p>
+                  </div>
                 </div>
 
                 <div className="space-y-4">

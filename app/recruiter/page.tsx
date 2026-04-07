@@ -3,8 +3,8 @@
 import RecruiterDashboard from "@/components/RecruiterDashboard";
 import { useMode } from "@/lib/mode-context";
 import { useEffect } from "react";
-import LeftSidebar from "@/components/LeftSidebar";
-import ModeToggle from "@/components/ModeToggle";
+// [MOVED TO layout.tsx] import LeftSidebar from "@/components/LeftSidebar";
+// [MOVED TO layout.tsx] import ModeToggle from "@/components/ModeToggle";
 import { motion } from "framer-motion";
 
 export default function RecruiterPage() {
@@ -20,21 +20,23 @@ export default function RecruiterPage() {
   if (mode !== "recruiter") return null;
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="relative min-h-screen bg-[#050508] overflow-x-hidden"
-    >
-      <LeftSidebar />
-      <ModeToggle />
-      <div className="relative recruiter-grid">
-        {/* Recruiter ambient glow */}
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/4 blur-[100px] rounded-full" />
+    <>
+      {/* [MOVED TO layout.tsx] <LeftSidebar /> */}
+      {/* [MOVED TO layout.tsx] <ModeToggle /> */}
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="relative min-h-screen bg-[#050508] overflow-x-hidden"
+      >
+        <div className="relative recruiter-grid">
+          {/* Recruiter ambient glow */}
+          <div className="fixed inset-0 pointer-events-none z-0">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-cyan-500/4 blur-[100px] rounded-full" />
+          </div>
+          <RecruiterDashboard />
         </div>
-        <RecruiterDashboard />
-      </div>
-    </motion.main>
+      </motion.main>
+    </>
   );
 }

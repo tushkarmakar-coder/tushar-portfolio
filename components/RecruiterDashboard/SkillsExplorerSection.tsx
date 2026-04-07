@@ -6,7 +6,8 @@ import CentralExplorer from "./CentralExplorer";
 import ImpactPanel from "./ImpactPanel";
 
 export default function SkillsExplorerSection() {
-  const [selectedSkill, setSelectedSkill] = useState("SQL");
+  const [selectedCategory, setSelectedCategory] = useState("Incident Management");
+  const [selectedItem, setSelectedItem] = useState("Incident Management");
 
   return (
     <div className="w-full max-w-[1400px] mx-auto py-20 px-6">
@@ -23,17 +24,24 @@ export default function SkillsExplorerSection() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
         {/* LEFT: Skill Matrix Pills */}
         <div className="flex justify-center lg:justify-end">
-          <SkillsPanel selectedSkill={selectedSkill} onSelect={setSelectedSkill} />
+          <SkillsPanel 
+            selectedCategory={selectedCategory}
+            selectedItem={selectedItem}
+            onSelect={(category, item) => {
+              setSelectedCategory(category);
+              setSelectedItem(item);
+            }} 
+          />
         </div>
 
         {/* CENTER: Holographic hand + selected skill name */}
         <div className="flex justify-center">
-          <CentralExplorer selectedSkill={selectedSkill} />
+          <CentralExplorer selectedItem={selectedItem} selectedCategory={selectedCategory} />
         </div>
 
         {/* RIGHT: Production Impact */}
         <div className="flex justify-center lg:justify-start">
-          <ImpactPanel selectedSkill={selectedSkill} />
+          <ImpactPanel selectedCategory={selectedCategory} selectedItem={selectedItem} />
         </div>
       </div>
     </div>

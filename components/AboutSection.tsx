@@ -13,7 +13,14 @@ export default function AboutSection() {
   const clientSummary = "AI Content & Web Solutions Creator leveraging generative workflows to deliver high-retention digital assets. Specializing in AI video production, social media growth, and responsive web development for modern brands and creators.";
 
   const interests = isRecruiter 
-    ? ["Incident Management", "SLA Compliance", "Root Cause Analysis", "ITIL V4"]
+    ? [
+        "Incident Ownership",
+        "System Reliability",
+        "SLA & MTTR Optimization",
+        "Root Cause Analysis (RCA)",
+        "Production Stability",
+        "API & Log Debugging"
+      ]
     : ["AI Video Creation", "Social Media Growth", "Website Development", "Creative Strategy"];
 
   const profileImage = isRecruiter ? "/profile/recruiter.png" : "/profile/client.png";
@@ -42,7 +49,7 @@ export default function AboutSection() {
           <div className="absolute bottom-10 left-10 z-20">
             <div className="flex items-center gap-2 mb-2 text-cyan-400">
                <Sparkles size={16} />
-               <span className="text-xs font-black uppercase tracking-[0.2em]">{isRecruiter ? "L2 Application Support Engineer" : "AI Content Strategist"}</span>
+               <span className="text-xs font-black uppercase tracking-[0.2em]">{isRecruiter ? "Incident Manager" : "AI Content Strategist"}</span>
             </div>
             <h4 className="text-white font-black text-3xl mb-1 tracking-tight">Tushar Karmakar</h4>
           </div>
@@ -58,13 +65,13 @@ export default function AboutSection() {
           <div className="text-gray-400 text-xl leading-relaxed mb-12 font-light">
             {isRecruiter ? (
               <div className="space-y-6">
-                <p className="italic">&quot;Every minute matters in production support — I ensure those minutes are spent resolving, not reacting.&quot;</p>
-                <p>I am an L2 Application Support Engineer with 6+ years of expertise in maintaining enterprise-level system stability and resolving critical incidents with high precision.</p>
+                <p className="italic">&quot;Production systems don’t fail quietly — and neither do I.&quot;</p>
+                <p>Incident Manager with 6+ years of experience owning high-severity production environments for Oracle B2C Cloud. Focused on reducing system risk, improving reliability, and preventing recurring failures at scale.</p>
                 <ul className="space-y-2 text-lg">
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>50+ incidents handled monthly with 95% SLA adherence.</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Spearheaded major bridge calls for high-priority outages.</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Reduced MTTR by 25% through advanced Root Cause Analysis.</span></li>
-                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Prevented repeated failures, dropping RCA logs by 20–30%.</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Owned 50+ P1/P2 incidents/month @ 95%+ SLA</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Reduced MTTR by ~25% & recurring incidents by 20–30%</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Led P1 bridge calls across cross-functional teams</span></li>
+                  <li className="flex items-start gap-2"><span className="text-cyan-400 font-bold">•</span> <span>Restored outages within ~2 hours with 4+ years SPOC ownership</span></li>
                 </ul>
               </div>
             ) : (

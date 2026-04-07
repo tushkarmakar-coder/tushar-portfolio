@@ -9,7 +9,7 @@ interface ResumeModalProps {
   onClose: () => void;
 }
 
-const RESUME_PATH = "/resume/Tushar_Karmakar_Resume.pdf";
+const RESUME_PATH = "/Resume_TusharKarmakar.pdf";
 
 export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   const [isLoading, setIsLoading] = useState(true);

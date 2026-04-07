@@ -12,6 +12,7 @@ export default function ModeToggle() {
   if (mode === "idle") return null;
 
   const handleModeChange = (newMode: "recruiter" | "client" | "idle") => {
+    window.scrollTo(0, 0);
     setMode(newMode);
     if (newMode === "idle") {
       router.push("/entry");

@@ -28,7 +28,7 @@ export default function ExperiencePanel() {
         
         <div className="flex flex-col gap-2">
           <h4 className="text-2xl font-black text-white">Infogain</h4>
-          <p className="text-sm font-bold text-cyan-400/80 uppercase tracking-widest">L2 Support Engineer</p>
+          <p className="text-sm font-bold text-cyan-400/80 uppercase tracking-widest">Incident Manager</p>
         </div>
 
         <div className="flex items-center gap-4 text-[10px] font-bold text-gray-500 uppercase tracking-widest">

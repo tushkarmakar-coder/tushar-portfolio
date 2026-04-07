@@ -9,12 +9,13 @@ import CertificateModal from "./CertificateModal";
 interface Certification {
   title: string;
   issuer: string;
-  fileName: string;
-  filePath: string;
+  status: "completed" | "in-progress";
+  proofLink?: string;
+  issuedDate?: string;
   badge?: string;
-  id?: string;
-  date?: string;
   type: 'pdf' | 'image';
+  fileName?: string;
+  filePath: string;
 }
 
 export default function CertificationsSection() {
@@ -85,8 +86,8 @@ export default function CertificationsSection() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            onClick={() => handleOpenCert(cert)}
-            className="glass-panel p-8 border-cyan-500/10 relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-500 flex flex-col cursor-pointer active:scale-95"
+            onClick={() => cert.status === "completed" && handleOpenCert(cert)}
+            className={`glass-panel p-8 border-cyan-500/10 relative overflow-hidden group transition-all duration-500 flex flex-col ${cert.status === "completed" ? "hover:border-cyan-500/40 cursor-pointer active:scale-95" : "opacity-80"}`}
           >
             {/* Dynamic Badge or Icon */}
             <div className="absolute top-6 right-6 z-10">
@@ -124,15 +125,17 @@ export default function CertificationsSection() {
               <div className="flex items-center gap-3 text-[10px] font-black text-gray-500 uppercase tracking-[0.2em]">
                 <span className="px-2 py-1 bg-white/5 rounded-md border border-white/5">{cert.issuer}</span>
                 <span className="w-1 h-1 rounded-full bg-cyan-500/30" />
-                <span>Issued {cert.date}</span>
+                <span>{cert.status === "completed" ? `Issued ${cert.issuedDate}` : "In Progress"}</span>
               </div>
               
-              <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                <span className="text-[10px] font-black text-cyan-500/60 uppercase tracking-widest">
-                  View Proof
-                </span>
-                <ExternalLink className="w-4 h-4 text-cyan-500/40 group-hover:text-cyan-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-              </div>
+              {cert.status === "completed" && (
+                <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                  <span className="text-[10px] font-black text-cyan-500/60 uppercase tracking-widest">
+                    View Proof
+                  </span>
+                  <ExternalLink className="w-4 h-4 text-cyan-500/40 group-hover:text-cyan-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                </div>
+              )}
             </div>
           </motion.div>
         ))}
