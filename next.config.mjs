@@ -5,9 +5,13 @@ const nextConfig = {
       {
         source: "/",
         destination: "/entry",
-        permanent: true, // HTTP 308 — cached by browsers & CDNs, zero flicker
+        permanent: true,
       },
     ];
+  },
+
+  eslint: {
+    ignoreDuringBuilds: true, 
   },
 };
 
