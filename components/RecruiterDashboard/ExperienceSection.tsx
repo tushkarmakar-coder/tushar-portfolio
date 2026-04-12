@@ -5,15 +5,15 @@ import { Briefcase, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 export default function ExperienceSection() {
   const responsibilities = [
-    "Owned end-to-end incident lifecycle for enterprise SaaS platform",
-    "Resolved 50+ P1/P2 incidents/month @ 95% SLA",
-    "Reduced MTTR by ~25% via triage optimization",
-    "Led major incident bridge calls across cross-functional teams",
-    "Drove RCA reducing recurring incidents by 20–30%",
-    "Restored full outage within ~2 hours minimizing impact",
-    "Served as SPOC for 4+ years handling critical incidents",
-    "Debugged production issues using SQL, APIs, and logs",
-    "Supported Agile releases ensuring system stability"
+    "Owned end-to-end incident lifecycle (triage → investigation → resolution → RCA) for Oracle B2C Cloud.",
+    "Resolved 50+ P1/P2 incidents per month with 95%+ SLA adherence.",
+    "Reduced MTTR by ~25% through triage workflow and escalation optimization.",
+    "Served as sole SPOC for night shifts over 4+ years handling critical incidents end-to-end.",
+    "Led P1 major incident bridge calls coordinating development, QA, infrastructure, and business stakeholders.",
+    "Recovered from full-site outage within ~2 hours using rapid incident response planning.",
+    "Drove RCA-based problem management initiatives that reduced recurring incidents by 20–30%.",
+    "Performed REST API diagnostics, SQL-based data validation, and backend log analysis to accelerate root cause identification.",
+    "Supported Agile/Scrum releases with deployment validation, post-release monitoring, and regression incident tracking."
   ];
 
   return (

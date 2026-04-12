@@ -10,9 +10,11 @@ interface CentralExplorerProps {
 }
 
 const skillIcon: Record<string, React.ReactNode> = {
-  "Incident Management": <Shield className="w-8 h-8 text-emerald-400" />,
-  "Technical Skills": <Terminal className="w-8 h-8 text-blue-400" />,
-  "Tools": <Settings className="w-8 h-8 text-cyan-400" />,
+  "Incident Management & ITSM": <Shield className="w-8 h-8 text-emerald-400" />,
+  "Monitoring & Observability": <Terminal className="w-8 h-8 text-blue-400" />,
+  "Cloud & Infrastructure": <Settings className="w-8 h-8 text-cyan-400" />,
+  "Development & Programming": <Terminal className="w-8 h-8 text-blue-400" />,
+  "Methodologies": <Shield className="w-8 h-8 text-cyan-400" />,
 };
 
 export default function CentralExplorer({ selectedCategory, selectedItem }: CentralExplorerProps) {

@@ -1,8 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Mail, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import ResumeModal from "./ResumeModal";
 
 const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -77,8 +79,16 @@ const socialLinks = [
 ];
 
 export default function ContactPanel() {
+  const [resumeOpen, setResumeOpen] = useState(false);
   const linkedinUrl = "https://linkedin.com/in/tushar-karmakar-255589102";
   const email = "tushkarmakar@gmail.com";
+
+  const handleProfileClick = () => {
+    const aboutSection = document.getElementById("about");
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <motion.div
@@ -93,8 +103,26 @@ export default function ContactPanel() {
       <div className="p-10 space-y-10">
         {/* Identity Header */}
         <div className="flex items-center gap-5">
-          <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-cyan-500/25 shrink-0">
-            <Image src="/profile/recruiter.png" alt="Tushar Karmakar" fill className="object-cover" />
+          <div className="flex flex-col items-center gap-2">
+            <button
+              type="button"
+              onClick={handleProfileClick}
+              className="relative w-16 h-16 rounded-2xl overflow-hidden border border-cyan-500/25 shrink-0 group transition-all duration-300 hover:border-cyan-400/50 hover:shadow-[0_0_18px_rgba(6,182,212,0.18)] cursor-pointer"
+            >
+              <Image
+                src="/profile/recruiter.png"
+                alt="Tushar Karmakar"
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 flex items-center justify-center text-[10px] uppercase tracking-[0.35em] text-cyan-100 font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                About Me
+              </div>
+            </button>
+            <span className="text-[10px] text-cyan-400/80 uppercase tracking-[0.25em] animate-pulse">
+              click to know me
+            </span>
           </div>
           <div className="flex flex-col gap-1">
             <h4 className="text-xl font-black text-white leading-tight">Tushar Karmakar</h4>
@@ -109,7 +137,7 @@ export default function ContactPanel() {
                 </span>
               </div>
               <p className="text-xs text-gray-400 mt-2 italic leading-relaxed">
-                If you're building high-availability systems and need someone who can own incidents, reduce MTTR, and improve system stability — let’s connect.
+                If you&apos;re building high-availability systems and need someone who can own incidents, reduce MTTR, and improve system stability — let’s connect.
               </p>
             </div>
           </div>
@@ -130,6 +158,16 @@ export default function ContactPanel() {
           >
             Hire Me <ArrowRight className="w-4 h-4" />
           </motion.a>
+
+          <motion.button
+            type="button"
+            onClick={() => setResumeOpen(true)}
+            whileHover={{ scale: 1.02, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="w-full py-5 rounded-2xl border border-white/10 bg-white/5 text-gray-300 font-black uppercase tracking-[0.35em] text-[11px] flex items-center justify-center gap-3 hover:bg-cyan-500/10 hover:border-cyan-400/30 transition-all"
+          >
+            <ArrowRight className="w-4 h-4 text-cyan-400" /> Download Resume
+          </motion.button>
 
           <motion.a
             href={`mailto:${email}`}
@@ -171,6 +209,7 @@ export default function ContactPanel() {
 
       {/* Bottom glow stripe */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </motion.div>
   );
 }

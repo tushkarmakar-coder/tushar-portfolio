@@ -6,7 +6,6 @@ import Image from "next/image";
 import { portfolioData } from "@/lib/data";
 import { ArrowDownRight, ExternalLink, Mail } from "lucide-react";
 import { useState } from "react";
-import ResumeModal from "./RecruiterDashboard/ResumeModal";
 import ProfileModal from "./ProfileModal";
 
 const LinkedinSvg = (props: React.SVGProps<SVGSVGElement>) => (
@@ -30,7 +29,6 @@ const TwitterXSvg = (props: React.SVGProps<SVGSVGElement>) => (
 export default function HeroSection() {
   const { mode } = useMode();
   const [reachOpen, setReachOpen] = useState(false);
-  const [resumeOpen, setResumeOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
 
   if (!mode) return null;
@@ -95,15 +93,16 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-24">
           {isRecruiter ? (
-            <motion.button
-              onClick={() => setResumeOpen(true)}
+            <motion.a
+              href="/resume/Tushar_Karmakar_Resume.pdf"
+              download
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-500 hover:scale-[1.02] active:scale-95 flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_10px_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.5)]"
             >
               Download Resume
               <ArrowDownRight className="w-5 h-5" />
-            </motion.button>
+            </motion.a>
           ) : (
             <motion.a
               href="#contact"
@@ -158,9 +157,6 @@ export default function HeroSection() {
         </div>
       </motion.div>
     </div>
-
-    {/* Resume Preview Modal */}
-    <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
 
     {/* Profile Details Modal */}
     <ProfileModal isOpen={profileOpen} onClose={() => setProfileOpen(false)} />

@@ -5,9 +5,7 @@ import { Trophy, CheckCircle2 } from "lucide-react";
 
 export default function AchievementsSection() {
   const achievements = [
-    "Spot Award - Infogain : Recognized for outstanding performance and critical incident resolution",
-    "Maintained 95%+ SLA compliance across 50+ monthly high-priority incidents",
-    "Reduced MTTR by ~25% and recurring incidents by ~20–30%"
+    "Spot Award (Feb 2022) – Infogain: Recognized for outstanding incident management performance – 95%+ SLA across 50+ monthly P1/P2 incidents, ∼25% MTTR reduction, and 20–30% drop in recurring issues through structured RCA.",
   ];
 
   return (

@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, TrendingUp } from "lucide-react";
-import { Database, FileSearch, Shield, Activity, HardDrive, Terminal, Settings } from "lucide-react";
+import { Shield, Terminal, Settings } from "lucide-react";
 import React from "react";
 
 interface ImpactPanelProps {
@@ -13,11 +13,17 @@ interface ImpactPanelProps {
 import { skillMatrixData } from "@/lib/skillMatrixData";
 
 export default function ImpactPanel({ selectedCategory, selectedItem }: ImpactPanelProps) {
-  const data = skillMatrixData[selectedCategory]?.[selectedItem] || skillMatrixData["Incident Management"]["Incident Management"];
+  const defaultCategory = Object.keys(skillMatrixData)[0];
+  const data = skillMatrixData[selectedCategory]?.[selectedItem] ?? skillMatrixData[defaultCategory]?.[defaultCategory];
+  const impactText = data?.impact ?? "No impact data available for this selection.";
+  const usageItems = data?.usage ?? [];
   
   const getIcon = (category: string) => {
-    if (category === "Incident Management") return <Shield className="w-5 h-5 text-emerald-400" />;
-    if (category === "Technical Skills") return <Terminal className="w-5 h-5 text-blue-400" />;
+    if (category === "Incident Management & ITSM") return <Shield className="w-5 h-5 text-emerald-400" />;
+    if (category === "Monitoring & Observability") return <Terminal className="w-5 h-5 text-blue-400" />;
+    if (category === "Cloud & Infrastructure") return <Settings className="w-5 h-5 text-cyan-400" />;
+    if (category === "Development & Programming") return <Terminal className="w-5 h-5 text-blue-400" />;
+    if (category === "Methodologies") return <Shield className="w-5 h-5 text-emerald-400" />;
     return <Settings className="w-5 h-5 text-cyan-400" />;
   };
 
@@ -54,7 +60,7 @@ export default function ImpactPanel({ selectedCategory, selectedItem }: ImpactPa
             </div>
             <div className="border-l-2 border-cyan-500/40 pl-4">
               <p className="text-lg font-bold text-white italic leading-snug">
-                &quot;{data.impact}&quot;
+                &quot;{impactText}&quot;
               </p>
             </div>
           </div>
@@ -68,7 +74,7 @@ export default function ImpactPanel({ selectedCategory, selectedItem }: ImpactPa
               Real-World Usage
             </span>
             <ul className="space-y-3">
-              {(data.usage || []).map((use, i) => (
+              {usageItems.map((use, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-gray-400">
                   <Sparkles className="w-3 h-3 text-cyan-400/60 mt-0.5 shrink-0" />
                   <span>{use}</span>

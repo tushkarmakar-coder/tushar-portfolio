@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useMode } from "@/lib/mode-context";
-import { ShieldCheck, Cpu, Terminal, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 export default function SkillsSection() {
   const { mode } = useMode();

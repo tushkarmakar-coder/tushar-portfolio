@@ -16,33 +16,15 @@ export async function getCertifications(): Promise<Certification[]> {
   const certifications: Certification[] = [
     {
       title: "Generative AI Practitioner",
-      issuer: "Infogain",
-      issuedDate: "2026",
+      issuer: "Infogain Excellence Program",
       status: "completed",
       fileName: "GenAIPrac-Certificate-Tushar Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Practitioner.png",
       type: "pdf"
     },
     {
-      title: "Prompt Engineering for ChatGPT",
-      issuer: "Infogain",
-      issuedDate: "2026",
-      status: "completed",
-      fileName: "PromptengineeringforChatGPT-Certificate.pdf",
-      type: "pdf"
-    },
-    {
-      title: "Incident Management",
-      issuer: "Infogain",
-      issuedDate: "2026",
-      status: "completed",
-      fileName: "IncidentManagment-Certificate-Tushar.pdf",
-      type: "pdf"
-    },
-    {
       title: "Generative AI Fundamentals",
-      issuer: "Infogain",
-      issuedDate: "2025",
+      issuer: "Infogain Excellence Program",
       status: "completed",
       fileName: "GenAIFund-Certificate-Tushar_20Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Fundamental.png",
@@ -50,22 +32,35 @@ export async function getCertifications(): Promise<Certification[]> {
     },
     {
       title: "Generative AI Beginner",
-      issuer: "Infogain",
-      issuedDate: "2025",
+      issuer: "Infogain Excellence Program",
       status: "completed",
       fileName: "GenAIBeg-Certificate-Tushar Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Beginner.png",
       type: "pdf"
     },
     {
+      title: "Prompt Engineering for ChatGPT",
+      issuer: "Coursera / Infogain Certified",
+      status: "completed",
+      fileName: "PromptengineeringforChatGPT-Certificate.pdf",
+      type: "pdf"
+    },
+    {
+      title: "Incident Management",
+      issuer: "Infogain",
+      status: "completed",
+      fileName: "IncidentManagment-Certificate-Tushar.pdf",
+      type: "pdf"
+    },
+    {
       title: "ITIL v4 Foundation",
-      issuer: "Self-Learning",
+      issuer: "Coursera",
       status: "in-progress",
       type: "image"
     },
     {
       title: "AWS Cloud Practitioner",
-      issuer: "Self-Learning",
+      issuer: "Self-learning with Coursera",
       status: "in-progress",
       type: "image"
     }

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useMode } from "@/lib/mode-context";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { 
   Home, 
   User, 
@@ -24,49 +24,65 @@ export default function LeftSidebar() {
   // Declare nav items BEFORE useEffect so they are not in the TDZ
   const isRecruiter = mode === "recruiter";
 
-  const recruiterNav = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "performance", label: "Performance Matrix", icon: Activity },
-    { id: "skills", label: "My Skills", icon: Code },
-    { id: "experience", label: "Professional Experience", icon: Briefcase },
-    { id: "achievements", label: "Achievements", icon: Award },
-    { id: "certifications", label: "Certifications", icon: FileText },
-    { id: "contact", label: "Contact", icon: Mail },
-  ];
+  const recruiterNav = useMemo(
+    () => [
+      { id: "home", label: "Home", icon: Home },
+      { id: "about", label: "About", icon: User },
+      { id: "performance", label: "Performance Matrix", icon: Activity },
+      { id: "skills", label: "My Skills", icon: Code },
+      { id: "experience", label: "Professional Experience", icon: Briefcase },
+      { id: "achievements", label: "Achievements", icon: Award },
+      { id: "certifications", label: "Certifications", icon: FileText },
+      { id: "contact", label: "Contact", icon: Mail },
+    ],
+    []
+  );
 
-  const clientNav = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "services", label: "Services", icon: Layers },
-    { id: "projects", label: "Projects", icon: FolderGit2 },
-    { id: "pricing", label: "Pricing", icon: Tag },
-    { id: "contact", label: "Contact", icon: Mail },
-  ];
+  const clientNav = useMemo(
+    () => [
+      { id: "home", label: "Home", icon: Home },
+      { id: "about", label: "About", icon: User },
+      { id: "services", label: "Services", icon: Layers },
+      { id: "projects", label: "Projects", icon: FolderGit2 },
+      { id: "pricing", label: "Pricing", icon: Tag },
+      { id: "contact", label: "Contact", icon: Mail },
+    ],
+    []
+  );
 
-  const currentNav = isRecruiter ? recruiterNav : clientNav;
+  const currentNav = useMemo(
+    () => (isRecruiter ? recruiterNav : clientNav),
+    [isRecruiter, recruiterNav, clientNav]
+  );
 
-  // Scroll spy logic
   useEffect(() => {
     if (!mode || mode === "idle") return;
 
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3;
-      let current = currentNav[0].id;
+    const sectionIds = currentNav.map((item) => item.id);
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => Boolean(section));
 
-      for (const item of currentNav) {
-        const element = document.getElementById(item.id);
-        if (element && element.offsetTop <= scrollPosition) {
-          current = item.id;
+    if (!sections.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible) {
+          setActiveSection(visible.target.id);
         }
+      },
+      {
+        root: null,
+        rootMargin: "-20% 0px -70% 0px",
+        threshold: 0,
       }
+    );
 
-      setActiveSection(current);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Init
-    return () => window.removeEventListener("scroll", handleScroll);
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
   }, [currentNav, mode]);
 
   if (!mode) return null;

@@ -2,10 +2,17 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { portfolioData } from "@/lib/data";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.RESEND_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "RESEND_API_KEY is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const resend = new Resend(apiKey);
     const body = await req.json();
     const { name, email, message, phone, service, budget, source } = body;
 

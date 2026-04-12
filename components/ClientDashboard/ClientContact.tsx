@@ -102,8 +102,7 @@ export default function ClientContact() {
           </motion.a>
 
           {/* Phone card */}
-          <motion.a
-            href="tel:+91"
+          <motion.div
             whileHover={{ y: -6, scale: 1.01 }}
             className="group flex items-center gap-5 p-6 rounded-2xl border border-white/6 hover:border-cyan-500/25 transition-all duration-400"
             style={{ background: "rgba(8,8,20,0.5)", backdropFilter: "blur(20px)" }}
@@ -119,7 +118,7 @@ export default function ClientContact() {
                 Available on request
               </span>
             </div>
-          </motion.a>
+          </motion.div>
 
           {/* Communication note */}
           <div

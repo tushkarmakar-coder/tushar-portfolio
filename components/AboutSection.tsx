@@ -26,7 +26,7 @@ export default function AboutSection() {
   const profileImage = isRecruiter ? "/profile/recruiter.png" : "/profile/client.png";
 
   return (
-    <div id="about" className="w-full">
+    <div className="w-full">
       <div className="text-center mb-24">
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
           Behind the Persona

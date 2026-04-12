@@ -13,8 +13,11 @@ import { skillMatrixData } from "@/lib/skillMatrixData";
 
 export default function SkillsPanel({ selectedCategory, selectedItem, onSelect }: SkillsPanelProps) {
   const getIcon = (category: string) => {
-    if (category === "Incident Management") return <ShieldCheck className="w-5 h-5 text-cyan-400" />;
-    if (category === "Technical Skills") return <Code className="w-5 h-5 text-blue-400" />;
+    if (category === "Incident Management & ITSM") return <ShieldCheck className="w-5 h-5 text-cyan-400" />;
+    if (category === "Monitoring & Observability") return <Settings className="w-5 h-5 text-blue-400" />;
+    if (category === "Cloud & Infrastructure") return <Settings className="w-5 h-5 text-cyan-400" />;
+    if (category === "Development & Programming") return <Code className="w-5 h-5 text-blue-400" />;
+    if (category === "Methodologies") return <ShieldCheck className="w-5 h-5 text-cyan-400" />;
     return <Settings className="w-5 h-5 text-cyan-400" />;
   };
 
@@ -34,7 +37,9 @@ export default function SkillsPanel({ selectedCategory, selectedItem, onSelect }
           <div key={groupIdx} className="space-y-4">
             <div className="flex items-center gap-3">
               {getIcon(categoryName)}
-              <h4 className="text-xs font-bold text-white uppercase tracking-widest">{categoryName}</h4>
+              <h4 className={`text-xs font-bold uppercase tracking-widest ${categoryName === selectedCategory ? 'text-cyan-400' : 'text-white'}`}>
+                {categoryName}
+              </h4>
             </div>
             <div className="flex flex-wrap gap-2">
               {Object.keys(data || {}).map((item, itemIdx) => (

@@ -34,32 +34,10 @@ export default function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
   const recruiterData = {
     summary: (
       <div className="space-y-6">
-        <p>Incident Manager with 6+ years of experience owning high-severity production environments for enterprise SaaS platforms (Oracle B2C Cloud).</p>
-        <p>I specialize in managing P1/P2 incidents, reducing MTTR, and improving system reliability through structured RCA and proactive problem management.</p>
-        <div className="space-y-3">
-          <h4 className="text-white font-bold not-italic">Key Impact:</h4>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Owned 50+ monthly P1/P2 incidents with 95%+ SLA adherence</li>
-            <li>Reduced MTTR by ~25% through triage and escalation optimization</li>
-            <li>Eliminated 20–30% recurring incidents using RCA-driven improvements</li>
-            <li>Led major incident bridge calls across Dev, QA, Infra, and Business teams</li>
-            <li>Restored full-site outages within ~2 hours minimizing business impact</li>
-            <li>Served as sole SPOC for 4+ years in high-pressure production environments</li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h4 className="text-white font-bold not-italic">Technical Strength:</h4>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>SQL-based debugging and data validation</li>
-            <li>REST API diagnostics and monitoring</li>
-            <li>Backend log analysis for root cause identification</li>
-            <li>Oracle B2C Cloud production support</li>
-          </ul>
-        </div>
-        <div className="space-y-3">
-          <h4 className="text-white font-bold not-italic">Approach:</h4>
-          <p>I focus on system reliability, incident ownership, and reducing production risk — not just resolving tickets but preventing failures at scale.</p>
-        </div>
+        <p>Incident Manager with 6+ years of experience owning end-to-end incident lifecycle management for enterprise SaaS platforms (Oracle B2C Cloud).</p>
+        <p>I lead high-severity P1/P2 triage, manage major incident bridge calls, and execute RCA-driven problem management to stabilize production systems.</p>
+        <p>I perform SQL diagnostics, REST API testing, backend log analysis, and release monitoring to accelerate root cause identification and improve SLA adherence.</p>
+        <p>I hold a Bachelor of Technology in Information Technology from ITER, Siksha ‘O’ Anusandhan University and continue formal learning through ITIL v4 and cloud practitioner training.</p>
       </div>
     ),
     focusAreas: ["Incident Ownership", "System Reliability", "SLA & MTTR Optimization", "Root Cause Analysis (RCA)", "Production Stability", "API & Log Debugging"],

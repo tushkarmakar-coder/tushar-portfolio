@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion";
 import ClientHero from "./ClientHero";
+import AboutSection from "../AboutSection";
 import ClientServices from "./ClientServices";
 import ClientPricing from "./ClientPricing";
 import ClientProjects from "./ClientProjects";
+import ClientComingSoon from "./ClientComingSoon";
 import ClientContact from "./ClientContact";
 
 function Section({
@@ -48,8 +50,13 @@ export default function ClientDashboard() {
           </div>
         </Section>
 
+        {/* ── About / Summary ── */}
+        <Section id="about" className="py-32">
+          <AboutSection />
+        </Section>
+
         {/* ── Divider ── */}
-        <div id="about" className="px-6 md:px-10 max-w-7xl mx-auto w-full">
+        <div className="px-6 md:px-10 max-w-7xl mx-auto w-full">
           <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
         </div>
 
@@ -82,7 +89,15 @@ export default function ClientDashboard() {
         <div className="px-6 md:px-10 max-w-7xl mx-auto w-full">
           <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
         </div>
+        {/* ── LittiWale Coming Soon — Client Launch Page ── */}
+        <Section className="py-32">
+          <ClientComingSoon />
+        </Section>
 
+        {/* ── Divider ── */}
+        <div className="px-6 md:px-10 max-w-7xl mx-auto w-full">
+          <div className="h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
+        </div>
         {/* ── Contact ── */}
         <Section id="contact" className="py-32">
           <ClientContact />
