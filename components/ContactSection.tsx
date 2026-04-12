@@ -67,7 +67,7 @@ export default function ContactSection() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-24"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -89,11 +89,11 @@ export default function ContactSection() {
             whileTap={{ scale: 0.98 }}
             className="group glass-panel p-10 flex flex-col gap-8 relative overflow-hidden cursor-pointer border-cyan-400/10 hover:border-cyan-400/40"
           >
-            <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-all duration-300">
                <ArrowUpRight className="w-8 h-8 text-cyan-400" />
             </div>
             
-            <div className="w-16 h-16 rounded-2xl bg-[#0077b5]/10 border border-[#0077b5]/30 flex items-center justify-center text-[#0077b5] group-hover:bg-[#0077b5] group-hover:text-white transition-all duration-700 p-4">
+            <div className="w-16 h-16 rounded-2xl bg-[#0077b5]/10 border border-[#0077b5]/30 flex items-center justify-center text-[#0077b5] group-hover:bg-[#0077b5] group-hover:text-white transition-all duration-300 p-4">
                <LinkedinIcon className="w-full h-full" />
             </div>
 
@@ -117,7 +117,7 @@ export default function ContactSection() {
             whileHover={{ y: -8, scale: 1.02 }}
             className="group glass-panel p-10 flex items-center gap-8 border-white/5 hover:border-cyan-400/30"
           >
-            <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gray-500 group-hover:text-cyan-400 group-hover:border-cyan-400/30 transition-all duration-700">
+            <div className="w-14 h-14 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-gray-500 group-hover:text-cyan-400 group-hover:border-cyan-400/30 transition-all duration-300">
                <Mail className="w-6 h-6" />
             </div>
             <div>

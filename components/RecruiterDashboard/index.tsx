@@ -25,37 +25,37 @@ export default function RecruiterDashboard() {
         </section>
 
         {/* Section 2: About / Summary */}
-        <CinematicSection id="about" className="w-full py-16 md:py-24" duration={0.8}>
+        <CinematicSection id="about" className="w-full py-16 md:py-24" duration={0.35}>
           <AboutSection />
         </CinematicSection>
 
         {/* Section 3: Professional KPIs */}
-        <CinematicSection id="performance" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={0.8}>
+        <CinematicSection id="performance" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={0.35}>
           <KpiSection />
         </CinematicSection>
 
         {/* Section 4: Technical Skills Explorer */}
-        <CinematicSection id="skills" className="w-full py-16 md:py-24" duration={0.8}>
+        <CinematicSection id="skills" className="w-full py-16 md:py-24" duration={0.35}>
           <SkillsExplorerSection />
         </CinematicSection>
 
         {/* Section 5: Experience Profile */}
-        <CinematicSection id="experience" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={1.0}>
+        <CinematicSection id="experience" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={0.4}>
           <ExperienceSection />
         </CinematicSection>
 
         {/* Section 6: Achievements */}
-        <CinematicSection id="achievements" className="w-full py-16 md:py-24" duration={0.8}>
+        <CinematicSection id="achievements" className="w-full py-16 md:py-24" duration={0.35}>
           <AchievementsSection />
         </CinematicSection>
 
         {/* Section 7: Certifications */}
-        <CinematicSection id="certifications" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={0.8}>
+        <CinematicSection id="certifications" className="w-full py-16 md:py-24 bg-white/[0.01]" duration={0.35}>
           <CertificationsSection />
         </CinematicSection>
 
         {/* Section 8: Contact & Hire */}
-        <CinematicSection id="contact" className="w-full py-16 md:py-24" duration={0.8}>
+        <CinematicSection id="contact" className="w-full py-16 md:py-24" duration={0.35}>
           <div className="flex justify-center px-6">
             <ContactPanel />
           </div>

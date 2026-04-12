@@ -15,7 +15,7 @@ interface CinematicSectionProps {
 export default function CinematicSection({ 
   children, 
   className = "", 
-  duration = 0.8, 
+  duration = 0.35, 
   delay = 0,
   yOffset = 20,
   id

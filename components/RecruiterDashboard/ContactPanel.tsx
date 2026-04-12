@@ -94,7 +94,7 @@ export default function ContactPanel() {
     <motion.div
       initial={{ opacity: 0, y: 40, scale: 0.97 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
       className="glass-panel w-full max-w-[520px] overflow-hidden border-cyan-500/15 shadow-[0_0_60px_rgba(6,182,212,0.08)]"
     >
       {/* Top glow stripe */}

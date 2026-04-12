@@ -50,19 +50,19 @@ export default function HeroSection() {
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="relative mb-10 group"
       >
         <div 
           onClick={() => setProfileOpen(true)}
-          className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-cyan-500/30 p-2 bg-[#0a0a0f] transition-all duration-500 cursor-pointer hover:border-cyan-500/60 shadow-[0_0_30px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]"
+          className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-cyan-500/30 p-2 bg-[#0a0a0f] transition-all duration-300 cursor-pointer hover:border-cyan-500/60 shadow-[0_0_30px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]"
         >
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
               src="/profile/recruiter.png"
               alt={personal.name}
               fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>
@@ -73,7 +73,7 @@ export default function HeroSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 1 }}
+        transition={{ delay: 0.25, duration: 0.4 }}
         className="max-w-4xl"
       >
         <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white mb-6">
@@ -98,7 +98,7 @@ export default function HeroSection() {
               download
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-500 hover:scale-[1.02] active:scale-95 flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_10px_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.5)]"
+              className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_10px_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.5)]"
             >
               Download Resume
               <ArrowDownRight className="w-5 h-5" />
@@ -108,12 +108,26 @@ export default function HeroSection() {
               href="#contact"
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-500 hover:scale-[1.02] active:scale-95 flex items-center gap-3 premium-button"
+              className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center gap-3 premium-button"
             >
               Start a Project
               <ExternalLink className="w-5 h-5" />
             </motion.a>
           )}
+
+          {/* Tap to know me Button */}
+          <motion.button
+            onClick={() => setProfileOpen(true)}
+            whileHover={{ y: -5, scale: 1.02 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm tracking-wide text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300"
+          >
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+            Tap to know me
+          </motion.button>
 
           {/* Reach Me Dropdown */}
           <div className="relative">

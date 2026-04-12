@@ -68,7 +68,7 @@ export default function ClientServices() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-20"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -96,9 +96,9 @@ export default function ClientServices() {
             <motion.div
               key={service.title}
               variants={cardVariants}
-              whileHover={{ y: -8, transition: { duration: 0.3 } }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-              className="group relative flex flex-col p-8 rounded-3xl border transition-all duration-500 overflow-hidden"
+              whileHover={{ y: -8, transition: { duration: 0.25 } }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+              className="group relative flex flex-col p-8 rounded-3xl border transition-all duration-300 overflow-hidden"
               style={{
                 background: "rgba(8,8,20,0.5)",
                 backdropFilter: "blur(20px)",
@@ -114,7 +114,7 @@ export default function ClientServices() {
             >
               {/* Background glow on hover */}
               <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-3xl"
                 style={{
                   background: `radial-gradient(circle at top left, ${service.glowColor} 0%, transparent 65%)`,
                 }}

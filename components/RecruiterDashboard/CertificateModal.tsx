@@ -44,7 +44,7 @@ export default function CertificateModal({ isOpen, onClose, certificate }: Certi
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="absolute inset-0 bg-black/90 backdrop-blur-xl transition-all duration-500"
+            className="absolute inset-0 bg-black/90 backdrop-blur-xl transition-all duration-300"
           />
 
           {/* Modal Container */}
@@ -121,7 +121,7 @@ export default function CertificateModal({ isOpen, onClose, certificate }: Certi
                       src={certificate.filePath}
                       alt={certificate.title}
                       fill
-                      className="object-contain transition-transform duration-700"
+                      className="object-contain transition-transform duration-300"
                       onLoadingComplete={() => setIsLoading(false)}
                     />
                   </div>

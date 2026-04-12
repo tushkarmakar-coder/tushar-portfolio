@@ -150,7 +150,7 @@ export default function ClientProjects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.35 }}
           className="text-center mb-20"
         >
           <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -185,13 +185,13 @@ export default function ClientProjects() {
               <motion.div
                 key={`${card.title}-${idx}`}
                 variants={cardVariants}
-                transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
                 whileHover={{ y: -10 }}
                 onClick={() => card.type === "contact" ? scrollToContact() : openExternal(card.url!)}
-                className="group relative rounded-[40px] border border-white/8 p-8 flex flex-col items-center text-center cursor-pointer transition-all duration-500 hover:border-cyan-500/30"
+                className="group relative rounded-[40px] border border-white/8 p-8 flex flex-col items-center text-center cursor-pointer transition-all duration-300 hover:border-cyan-500/30"
                 style={{ background: "rgba(8,8,20,0.4)", backdropFilter: "blur(40px)" }}
               >
-                <div className="w-20 h-20 rounded-[28px] bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:border-cyan-400 transition-all duration-500 text-cyan-400 group-hover:text-black shadow-[0_0_30px_rgba(6,182,212,0.1)]">
+                <div className="w-20 h-20 rounded-[28px] bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:border-cyan-400 transition-all duration-300 text-cyan-400 group-hover:text-black shadow-[0_0_30px_rgba(6,182,212,0.1)]">
                   <Sparkles className="w-10 h-10" />
                 </div>
                 
@@ -235,10 +235,10 @@ export default function ClientProjects() {
                 <motion.div
                   key={project.title}
                   variants={cardVariants}
-                  transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+                  transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
                   whileHover={{ y: -8 }}
                   onClick={() => openWebsite(project)}
-                  className="group relative rounded-3xl border border-white/8 overflow-hidden cursor-pointer transition-all duration-500 hover:border-cyan-500/30"
+                  className="group relative rounded-3xl border border-white/8 overflow-hidden cursor-pointer transition-all duration-300 hover:border-cyan-500/30"
                   style={{ background: "rgba(8,8,20,0.6)", backdropFilter: "blur(20px)" }}
                 >
                   <div className="bg-[#070b11] border-b border-white/5 px-4 py-3 flex items-center gap-2">
@@ -257,11 +257,16 @@ export default function ClientProjects() {
                       <img
                         src={previewUrl}
                         alt={`${project.title} preview`}
-                        className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-105"
+                        className="absolute inset-0 w-full h-full object-cover transition duration-300 group-hover:scale-105"
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 flex items-center justify-center px-6 text-sm uppercase tracking-[0.2em] text-gray-500">
-                        Preview unavailable
+                      <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 border border-cyan-500/40 bg-[#05070f] px-6 text-center">
+                        <div className="text-[10px] uppercase tracking-[0.4em] text-cyan-400 font-black">
+                          Preview unavailable
+                        </div>
+                        <div className="text-white font-black text-xl leading-tight break-words max-w-[80%]">
+                          {project.subtitle}
+                        </div>
                       </div>
                     )}
                     <div className="absolute inset-0 bg-black/30" />

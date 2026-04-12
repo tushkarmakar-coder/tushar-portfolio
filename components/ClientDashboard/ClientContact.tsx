@@ -58,7 +58,7 @@ export default function ClientContact() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-20"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -78,14 +78,14 @@ export default function ClientContact() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.35 }}
           className="w-full lg:w-2/5 flex flex-col gap-5"
         >
           {/* Email card */}
           <motion.a
             href="mailto:tushkarmakar@gmail.com"
             whileHover={{ y: -6, scale: 1.01 }}
-            className="group flex items-center gap-5 p-6 rounded-2xl border border-white/6 hover:border-cyan-500/25 transition-all duration-400"
+            className="group flex items-center gap-5 p-6 rounded-2xl border border-white/6 hover:border-cyan-500/25 transition-all duration-300"
             style={{ background: "rgba(8,8,20,0.5)", backdropFilter: "blur(20px)" }}
           >
             <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
@@ -104,7 +104,7 @@ export default function ClientContact() {
           {/* Phone card */}
           <motion.div
             whileHover={{ y: -6, scale: 1.01 }}
-            className="group flex items-center gap-5 p-6 rounded-2xl border border-white/6 hover:border-cyan-500/25 transition-all duration-400"
+            className="group flex items-center gap-5 p-6 rounded-2xl border border-white/6 hover:border-cyan-500/25 transition-all duration-300"
             style={{ background: "rgba(8,8,20,0.5)", backdropFilter: "blur(20px)" }}
           >
             <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 flex-shrink-0 group-hover:bg-cyan-500/20 transition-colors">
@@ -143,7 +143,7 @@ export default function ClientContact() {
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          transition={{ duration: 0.35, delay: 0.05 }}
           className="w-full lg:w-3/5"
         >
           <form

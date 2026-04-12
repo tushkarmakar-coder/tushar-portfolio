@@ -102,7 +102,7 @@ export default function LeftSidebar() {
       <motion.nav
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+        transition={{ delay: 0.15, duration: 0.35 }}
         className="hidden md:flex fixed left-8 top-1/2 -translate-y-1/2 z-[100] flex-col gap-2 p-2 rounded-[40px] border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.15)]"
         style={{
           background: "rgba(11, 15, 23, 0.65)",
@@ -137,7 +137,7 @@ export default function LeftSidebar() {
       <motion.nav
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.8 }}
+        transition={{ delay: 0.15, duration: 0.4 }}
         className="md:hidden fixed bottom-6 left-6 right-6 z-[100] flex justify-center items-center px-3 py-4 rounded-3xl border border-cyan-500/40 shadow-[0_10px_40px_-10px_rgba(6,182,212,0.4)] backdrop-blur-xl gap-1"
         style={{
           background: "linear-gradient(135deg, rgba(8, 8, 20, 0.9) 0%, rgba(15, 23, 42, 0.8) 100%)",

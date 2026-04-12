@@ -52,17 +52,17 @@ export default function ClientHero() {
       <motion.div
         initial={{ scale: 0.85, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
         className="relative group mb-10 cursor-pointer"
         onClick={() => setProfileOpen(true)}
       >
-        <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-cyan-500/30 p-2 bg-[#0a0a0f] transition-all duration-500 hover:border-cyan-500/60 shadow-[0_0_30px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]">
+        <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-full overflow-hidden border-2 border-cyan-500/30 p-2 bg-[#0a0a0f] transition-all duration-300 hover:border-cyan-500/60 shadow-[0_0_30px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_40px_rgba(6,182,212,0.25)]">
           <div className="relative w-full h-full rounded-full overflow-hidden">
             <Image
               src="/profile/client.png"
               alt="Tushar Karmakar"
               fill
-              className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+              className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>
@@ -73,7 +73,7 @@ export default function ClientHero() {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15, duration: 0.6 }}
+        transition={{ delay: 0.15, duration: 0.35 }}
         className="flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6"
       >
         <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
@@ -86,7 +86,7 @@ export default function ClientHero() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.25, duration: 0.9 }}
+        transition={{ delay: 0.15, duration: 0.35 }}
         className="max-w-4xl"
       >
         <h1 className="text-5xl md:text-8xl font-black tracking-tight text-white mb-5 leading-none">
@@ -123,7 +123,7 @@ export default function ClientHero() {
             href="#contact"
             whileHover={{ y: -4, scale: 1.02 }}
             whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-3 px-9 py-4 rounded-full font-black text-sm tracking-wide text-black transition-all duration-400"
+            className="flex items-center gap-3 px-9 py-4 rounded-full font-black text-sm tracking-wide text-black transition-all duration-300"
             style={{
               background: "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)",
               boxShadow: "0 10px 30px -5px rgba(6,182,212,0.4)",
@@ -145,10 +145,24 @@ export default function ClientHero() {
             href="#contact"
             whileHover={{ y: -4 }}
             whileTap={{ scale: 0.96 }}
-            className="flex items-center gap-3 px-9 py-4 rounded-full font-semibold text-sm tracking-wide text-white border border-cyan-500/25 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-400/40 transition-all duration-400 backdrop-blur-sm"
+            className="flex items-center gap-3 px-9 py-4 rounded-full font-semibold text-sm tracking-wide text-white border border-cyan-500/25 bg-cyan-500/5 hover:bg-cyan-500/10 hover:border-cyan-400/40 transition-all duration-300 backdrop-blur-sm"
           >
             Get Your Custom Quote
           </motion.a>
+
+          {/* Tap to know me Button */}
+          <motion.button
+            onClick={() => setProfileOpen(true)}
+            whileHover={{ y: -4, scale: 1.02 }}
+            whileTap={{ scale: 0.96 }}
+            className="flex items-center gap-3 px-8 py-4 rounded-full font-bold text-sm tracking-wide text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-500/50 shadow-[0_0_15px_rgba(6,182,212,0.15)] transition-all duration-300 backdrop-blur-sm"
+          >
+            <span className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+            Tap to know me
+          </motion.button>
 
           {/* Reach Me */}
           <div className="relative">
@@ -156,7 +170,7 @@ export default function ClientHero() {
               onClick={() => setReachOpen((v) => !v)}
               whileHover={{ y: -4 }}
               whileTap={{ scale: 0.96 }}
-              className="flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm tracking-wide text-gray-400 border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:text-white hover:border-white/15 transition-all duration-400 backdrop-blur-sm"
+              className="flex items-center gap-2 px-7 py-4 rounded-full font-semibold text-sm tracking-wide text-gray-400 border border-white/8 bg-white/[0.02] hover:bg-white/[0.05] hover:text-white hover:border-white/15 transition-all duration-300 backdrop-blur-sm"
             >
               Reach Me
               <ChevronRight
@@ -201,7 +215,7 @@ export default function ClientHero() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
+          transition={{ delay: 0.25, duration: 0.35 }}
           className="text-gray-600 text-sm tracking-wide"
         >
           No commitment — quick response guaranteed

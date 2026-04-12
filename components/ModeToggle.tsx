@@ -25,7 +25,7 @@ export default function ModeToggle() {
     <motion.div
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.35, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
       className="fixed top-6 inset-x-0 z-[999] flex justify-center pointer-events-none"
     >
       <div className="pointer-events-auto">
@@ -33,7 +33,7 @@ export default function ModeToggle() {
           {/* Recruiter Tab */}
           <button
             onClick={() => handleModeChange("recruiter")}
-            className={`relative flex items-center gap-1.5 md:gap-2.5 px-3.5 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.15em] transition-all duration-400 ${
+            className={`relative flex items-center gap-1.5 md:gap-2.5 px-3.5 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 ${
               mode === "recruiter"
                 ? "text-[#03030a]"
                 : "text-gray-500 hover:text-cyan-400"
@@ -54,7 +54,7 @@ export default function ModeToggle() {
           {/* Client Tab */}
           <button
             onClick={() => handleModeChange("client")}
-            className={`relative flex items-center gap-1.5 md:gap-2.5 px-3.5 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.15em] transition-all duration-400 ${
+            className={`relative flex items-center gap-1.5 md:gap-2.5 px-3.5 md:px-5 py-2.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-[0.15em] transition-all duration-300 ${
               mode === "client"
                 ? "text-[#03030a]"
                 : "text-gray-500 hover:text-cyan-400"
@@ -78,7 +78,7 @@ export default function ModeToggle() {
           {/* Reset */}
           <motion.button
             whileHover={{ rotate: -180 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.35 }}
             onClick={() => handleModeChange("idle")}
             className="p-2.5 rounded-full text-gray-600 hover:text-cyan-400 transition-colors"
             title="Return to Entry"

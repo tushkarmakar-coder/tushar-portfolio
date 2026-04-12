@@ -28,24 +28,61 @@ interface PreviewModalProps {
 
 export default function PreviewModal({ isOpen, onClose, item }: PreviewModalProps) {
   const [isLoading, setIsLoading] = useState(true);
+  const [screenshotUrl, setScreenshotUrl] = useState<string | null>(null);
+  const [previewError, setPreviewError] = useState(false);
+  const [hasTimedOut, setHasTimedOut] = useState(false);
   /** Controls iframe/video mount — destroyed on close to free memory */
   const [contentMounted, setContentMounted] = useState(false);
 
   useEffect(() => {
+    const controller = new AbortController();
+    let timeoutId: number | undefined;
+
     if (isOpen) {
       document.body.style.overflow = "hidden";
       setIsLoading(true);
+      setPreviewError(false);
+      setHasTimedOut(false);
+      setScreenshotUrl(null);
       setContentMounted(true); // mount content only when user opens
+
+      if (item?.type === "website") {
+        const url = encodeURIComponent(item.embedUrl ?? item.externalUrl);
+        const endpoint = `https://api.microlink.io/?url=${url}&screenshot=true&meta=false&embed=screenshot.url`;
+        timeoutId = window.setTimeout(() => {
+          setHasTimedOut(true);
+          setIsLoading(false);
+        }, 8000);
+
+        fetch(endpoint, { signal: controller.signal })
+          .then((response) => {
+            if (!response.ok) throw new Error("Screenshot fetch failed");
+            return response.json();
+          })
+          .then((data) => {
+            const screenshot = data?.screenshot?.url;
+            if (!screenshot) throw new Error("Screenshot unavailable");
+            setScreenshotUrl(screenshot);
+          })
+          .catch((error) => {
+            if (!controller.signal.aborted) {
+              setPreviewError(true);
+              setIsLoading(false);
+            }
+          });
+      }
     } else {
       document.body.style.overflow = "unset";
-      // delay unmount so exit animation can finish before destroying iframe
       const t = setTimeout(() => setContentMounted(false), 400);
       return () => clearTimeout(t);
     }
+
     return () => {
+      controller.abort();
       document.body.style.overflow = "unset";
+      if (timeoutId) window.clearTimeout(timeoutId);
     };
-  }, [isOpen]);
+  }, [isOpen, item]);
 
   if (!item) return null;
 
@@ -108,15 +145,39 @@ export default function PreviewModal({ isOpen, onClose, item }: PreviewModalProp
                 </div>
               )}
 
-              {/* WEBSITE — iframe */}
-              {contentMounted && item.type === "website" && item.embedUrl && (
-                <iframe
-                  src={item.embedUrl}
-                  title={item.title}
-                  className="w-full h-full border-none"
-                  onLoad={() => setIsLoading(false)}
-                  sandbox="allow-scripts allow-same-origin allow-forms"
-                />
+              {/* WEBSITE — screenshot preview */}
+              {contentMounted && item.type === "website" && (
+                <> 
+                  {screenshotUrl && !previewError && !hasTimedOut ? (
+                    <img
+                      src={screenshotUrl}
+                      alt={`${item.title} preview`}
+                      className="w-full h-full object-cover"
+                      onLoad={() => setIsLoading(false)}
+                      onError={() => {
+                        setPreviewError(true);
+                        setIsLoading(false);
+                      }}
+                    />
+                  ) : !isLoading && (previewError || hasTimedOut) ? (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 border border-cyan-500/40 bg-[#050608] px-8 text-center">
+                      <div className="text-[10px] uppercase tracking-[0.35em] text-cyan-400 font-black">
+                        Preview unavailable
+                      </div>
+                      <div className="text-white text-2xl font-black leading-tight max-w-full break-words">
+                        {item.externalUrl.replace(/^https?:\/\//, "")}
+                      </div>
+                      <a
+                        href={item.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-cyan-500 text-black font-black uppercase tracking-[0.15em] text-sm hover:bg-cyan-400 transition-all"
+                      >
+                        Open in new tab →
+                      </a>
+                    </div>
+                  ) : null}
+                </>
               )}
 
               {/* VIDEO — youtube/embed iframe */}

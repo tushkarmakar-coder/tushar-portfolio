@@ -52,9 +52,9 @@ export default function ProjectsSection() {
             className={`group glass-panel overflow-hidden border-white/5 cursor-pointer flex flex-col h-full ${isRecruiter ? 'hover:border-cyan-500/30' : 'hover:border-cyan-500/30'}`}
           >
             {/* Visual Preview */}
-            <div className={`relative h-64 w-full overflow-hidden bg-gradient-to-br ${project.gradient} transition-transform duration-700 group-hover:scale-105`}>
-              <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/10 transition-all duration-500" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 scale-90 group-hover:scale-100 p-8">
+            <div className={`relative h-64 w-full overflow-hidden bg-gradient-to-br ${project.gradient} transition-transform duration-300 group-hover:scale-105`}>
+              <div className="absolute inset-0 bg-brand-dark/40 group-hover:bg-brand-dark/10 transition-all duration-300" />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-90 group-hover:scale-100 p-8">
                  <div className="w-full h-full border border-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm">
                     <ExternalLink className="w-8 h-8 text-white" />
                  </div>
@@ -80,7 +80,7 @@ export default function ProjectsSection() {
                 <span className="text-xs font-bold text-gray-500 uppercase tracking-widest group-hover:text-gray-300 transition-colors">
                   Explore Project
                 </span>
-                <MoveRight className={`w-5 h-5 ${isRecruiter ? 'text-cyan-400' : 'text-cyan-400'} -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-500`} />
+                <MoveRight className={`w-5 h-5 ${isRecruiter ? 'text-cyan-400' : 'text-cyan-400'} -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300`} />
               </div>
             </div>
           </motion.div>

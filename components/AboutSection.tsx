@@ -38,13 +38,13 @@ export default function AboutSection() {
 
       <div className="flex flex-col lg:flex-row gap-20 items-stretch max-w-6xl mx-auto px-6">
         {/* Profile Card */}
-        <div className="w-full lg:w-2/5 aspect-[4/5] rounded-[48px] overflow-hidden border border-cyan-500/10 relative group shadow-2xl hover:border-cyan-500/30 transition-all duration-500">
+        <div className="w-full lg:w-2/5 aspect-[4/5] rounded-[48px] overflow-hidden border border-cyan-500/10 relative group shadow-2xl hover:border-cyan-500/30 transition-all duration-300">
           <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-transparent to-transparent z-10 opacity-80" />
           <Image 
             src={profileImage} 
             alt="Tushar Karmakar" 
             fill
-            className="object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           <div className="absolute bottom-10 left-10 z-20">
             <div className="flex items-center gap-2 mb-2 text-cyan-400">

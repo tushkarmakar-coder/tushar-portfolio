@@ -23,7 +23,7 @@ export default function KpiSection() {
             <motion.div 
               initial={{ width: 0 }} 
               whileInView={{ width: "85%" }} 
-              transition={{ duration: 1.5, delay: 0.2 }}
+              transition={{ duration: 0.35, delay: 0.1 }}
               className="h-full bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]" 
             />
           </div>
@@ -37,7 +37,7 @@ export default function KpiSection() {
             <motion.div 
               initial={{ width: 0 }} 
               whileInView={{ width: "95%" }} 
-              transition={{ duration: 1.5, delay: 0.4 }}
+              transition={{ duration: 0.35, delay: 0.15 }}
               className="h-full bg-cyan-400 shadow-[0_0_15px_rgba(34,211,238,0.5)]" 
             />
           </div>

@@ -71,8 +71,8 @@ export default function ClientComingSoon() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5 }}
-                className="group rounded-[28px] border border-cyan-500/15 bg-[#061017] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-400 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_30px_80px_rgba(0,212,255,0.18)]"
+                transition={{ duration: 0.35 }}
+                className="group rounded-[28px] border border-cyan-500/15 bg-[#061017] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/40 hover:shadow-[0_30px_80px_rgba(0,212,255,0.18)]"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="text-4xl">{card.icon}</div>

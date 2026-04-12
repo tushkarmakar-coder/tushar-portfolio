@@ -41,38 +41,61 @@ export default function EntryScreen() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 1.05, filter: "blur(10px)" }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="relative z-10 w-full max-w-5xl px-4"
           >
             {/* ── Composition stage: fixed aspect ratio container ── */}
             <div
-              className="relative mx-auto flex items-center justify-center cursor-pointer group"
+              className="relative mx-auto flex flex-col items-center justify-center cursor-pointer group"
               style={{ minHeight: "min(90vh, 700px)" }}
               onClick={() => setStage("choosing")}
             >
-              {/* MAIN CONTENT BLOCK — Text + Image centered composition ── */}
-
-              {/* LAYER 1 — Text block (behind face) */}
-              <div
-                className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none"
-                style={{ zIndex: 1, transform: "translateY(-18%)" }}
-              >
-                {/* "Hi, I am" */}
+              {/* Mobile text block above image */}
+              <div className="flex flex-col items-center justify-center gap-3 md:hidden pb-8 pointer-events-none select-none">
                 <motion.p
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
+                  transition={{ delay: 0.1, duration: 0.25, ease: "easeOut" }}
                   className="font-semibold uppercase tracking-[0.35em] text-white/90 text-center"
                   style={{ fontSize: "clamp(0.8rem, 2vw, 1.35rem)", marginBottom: "0.5em" }}
                 >
                   Hi, I am
                 </motion.p>
 
-                {/* "Tushar Karmakar" */}
                 <motion.h1
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5, duration: 0.9, ease: "easeOut" }}
+                  transition={{ delay: 0.15, duration: 0.3, ease: "easeOut" }}
+                  className="font-black uppercase text-center text-white leading-none"
+                  style={{
+                    fontSize: "clamp(2.4rem, 9vw, 8.5rem)",
+                    letterSpacing: "-0.02em",
+                    opacity: 0.92,
+                  }}
+                >
+                  Tushar<br />Karmakar
+                </motion.h1>
+              </div>
+
+              {/* Desktop text block behind face */}
+              <div
+                className="absolute inset-0 hidden md:flex flex-col items-center justify-center pointer-events-none select-none"
+                style={{ zIndex: 1, transform: "translateY(-18%)" }}
+              >
+                <motion.p
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.25, ease: "easeOut" }}
+                  className="font-semibold uppercase tracking-[0.35em] text-white/90 text-center"
+                  style={{ fontSize: "clamp(0.8rem, 2vw, 1.35rem)", marginBottom: "0.5em" }}
+                >
+                  Hi, I am
+                </motion.p>
+
+                <motion.h1
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15, duration: 0.3, ease: "easeOut" }}
                   className="font-black uppercase text-center text-white leading-none"
                   style={{
                     fontSize: "clamp(2.4rem, 9vw, 8.5rem)",
@@ -88,7 +111,7 @@ export default function EntryScreen() {
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
+                transition={{ delay: 0.2, duration: 0.3, ease: "easeOut" }}
                 className="relative flex justify-center items-center w-full"
                 style={{ zIndex: 2 }}
               >
@@ -97,9 +120,9 @@ export default function EntryScreen() {
                   alt="Tushar Karmakar"
                   width={600}
                   height={750}
-                  className="pointer-events-none object-contain transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className="pointer-events-none object-contain transition-transform duration-300 ease-out group-hover:scale-[1.04]"
                   style={{
-                    height: "clamp(260px, 60vh, 580px)",
+                    height: "clamp(220px, 50vh, 520px)",
                     width: "auto",
                     maxWidth: "100%",
                     mixBlendMode: "screen",
@@ -113,12 +136,12 @@ export default function EntryScreen() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2, duration: 0.8 }}
+                transition={{ delay: 0.25, duration: 0.25 }}
                 className="absolute bottom-6 inset-x-0 flex flex-col items-center gap-2 pb-4"
                 style={{ zIndex: 3 }}
               >
                 <div className="w-px h-8 bg-gradient-to-b from-cyan-500 to-transparent" />
-                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-400 group-hover:text-white transition-colors text-center mt-2">
+                <span className="text-[10px] font-black uppercase tracking-[0.5em] text-cyan-400 group-hover:text-white transition-colors duration-300 text-center mt-2">
                   Click on my face to know me
                 </span>
               </motion.div>
@@ -132,13 +155,13 @@ export default function EntryScreen() {
             key="choosing"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
             className="relative z-10 flex flex-col items-center max-w-4xl w-full px-6"
           >
             <motion.p
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
+              transition={{ delay: 0.1, duration: 0.25 }}
               className="text-xs font-black uppercase tracking-[0.6em] text-cyan-500/60 mb-12"
             >
               Who are you?
@@ -152,9 +175,9 @@ export default function EntryScreen() {
                 onClick={() => handleSelection("recruiter")}
                 className="group relative glass-panel p-10 flex flex-col items-center gap-6 text-center border-cyan-500/20 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-500/60 transition-all duration-400 shadow-[0_0_20px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-500/60 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                   <UserSearch className="w-8 h-8 text-cyan-400" />
                 </div>
                 
@@ -165,7 +188,7 @@ export default function EntryScreen() {
                   </p>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </motion.button>
 
               {/* Client */}
@@ -175,9 +198,9 @@ export default function EntryScreen() {
                 onClick={() => handleSelection("client")}
                 className="group relative glass-panel p-10 flex flex-col items-center gap-6 text-center border-cyan-500/20 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
-                <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-500/60 transition-all duration-400 shadow-[0_0_20px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                <div className="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center group-hover:border-cyan-500/60 transition-all duration-300 shadow-[0_0_20px_rgba(6,182,212,0.1)] group-hover:shadow-[0_0_30px_rgba(6,182,212,0.3)]">
                   <Briefcase className="w-8 h-8 text-cyan-400" />
                 </div>
                 
@@ -188,7 +211,7 @@ export default function EntryScreen() {
                   </p>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.8)] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
               </motion.button>
             </div>
             

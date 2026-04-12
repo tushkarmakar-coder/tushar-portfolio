@@ -77,7 +77,7 @@ export default function SkillsSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.35, delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
                 className="glass-panel p-8 text-center flex flex-col items-center justify-center gap-4 group"
               >
@@ -94,7 +94,7 @@ export default function SkillsSection() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
+                transition={{ duration: 0.35, delay: index * 0.05 }}
                 whileHover={{ y: -5 }}
                 className="glass-panel p-8 text-center flex flex-col items-center justify-center gap-4 group"
               >

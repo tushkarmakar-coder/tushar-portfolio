@@ -24,7 +24,7 @@ export default function ExperienceSection() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-20"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -41,7 +41,7 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 0.35 }}
           className="md:col-span-2 bg-white/[0.01] border border-white/5 p-10 rounded-[40px] relative overflow-hidden group"
         >
           <div className="absolute top-0 right-0 p-10 opacity-[0.03] group-hover:opacity-[0.05] transition-opacity">

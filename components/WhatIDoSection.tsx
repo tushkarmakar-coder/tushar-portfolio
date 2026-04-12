@@ -29,7 +29,7 @@ export default function WhatIDoSection() {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-24"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -47,11 +47,11 @@ export default function WhatIDoSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
+            transition={{ duration: 0.35, delay: index * 0.1 }}
             whileHover={{ y: -10 }}
             className="group glass-panel p-12 flex flex-col items-start text-left relative overflow-hidden"
           >
-            <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-10 text-cyan-400 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-700 shadow-xl group-hover:shadow-cyan-400/20">
+            <div className="w-16 h-16 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-center mb-10 text-cyan-400 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-300 shadow-xl group-hover:shadow-cyan-400/20">
                {item.icon}
             </div>
             
@@ -67,7 +67,7 @@ export default function WhatIDoSection() {
                <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
-                  transition={{ duration: 1.5, delay: 0.5 }}
+                  transition={{ duration: 0.35, delay: 0.15 }}
                   className="absolute inset-y-0 left-0 bg-cyan-400/30"
                />
             </div>

@@ -62,7 +62,7 @@ export default function ClientPricing() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.35 }}
         className="text-center mb-20"
       >
         <span className="text-cyan-400 text-xs font-black uppercase tracking-[0.4em] mb-4 block">
@@ -88,9 +88,9 @@ export default function ClientPricing() {
           <motion.div
             key={plan.name}
             variants={cardVariants}
-            whileHover={{ y: plan.featured ? -6 : -8, transition: { duration: 0.3 } }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
-            className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-500 ${
+            whileHover={{ y: plan.featured ? -6 : -8, transition: { duration: 0.25 } }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] as [number,number,number,number] }}
+            className={`relative flex flex-col p-8 rounded-3xl border transition-all duration-300 ${
               plan.featured
                 ? "border-cyan-500/40 shadow-[0_0_60px_rgba(6,182,212,0.15)]"
                 : "border-white/6"
@@ -168,7 +168,7 @@ export default function ClientPricing() {
         initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.35 }}
         className="text-center"
       >
         <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-cyan-500/5 border border-cyan-500/15">

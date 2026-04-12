@@ -26,7 +26,7 @@ export default function RecruiterPage() {
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.35 }}
         className="relative min-h-screen bg-[#050508] overflow-x-hidden"
       >
         <div className="relative recruiter-grid">

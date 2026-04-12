@@ -87,12 +87,12 @@ export default function CertificationsSection() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
             onClick={() => cert.status === "completed" && handleOpenCert(cert)}
-            className={`glass-panel p-8 border-cyan-500/10 relative overflow-hidden group transition-all duration-500 flex flex-col ${cert.status === "completed" ? "hover:border-cyan-500/40 cursor-pointer active:scale-95" : "opacity-80"}`}
+            className={`glass-panel p-8 border-cyan-500/10 relative overflow-hidden group transition-all duration-300 flex flex-col ${cert.status === "completed" ? "hover:border-cyan-500/40 cursor-pointer active:scale-95" : "opacity-80"}`}
           >
             {/* Dynamic Badge or Icon */}
             <div className="absolute top-6 right-6 z-10">
               {cert.badge ? (
-                <div className="relative w-14 h-14 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
+                <div className="relative w-14 h-14 group-hover:scale-125 group-hover:rotate-6 transition-all duration-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.3)]">
                   <Image 
                     src={cert.badge} 
                     alt="Badge" 
@@ -108,8 +108,8 @@ export default function CertificationsSection() {
             </div>
 
             {/* Hover Glow Effect */}
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-cyan-500/10 blur-[60px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-700" />
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-cyan-500/10 blur-[60px] rounded-full group-hover:bg-cyan-500/20 transition-all duration-300" />
 
             <div className="flex items-center gap-4 mb-6 relative">
               <div className="p-3 bg-white/5 rounded-xl border border-white/5 group-hover:border-cyan-500/30 transition-all">
