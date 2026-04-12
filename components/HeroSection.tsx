@@ -7,6 +7,7 @@ import { portfolioData } from "@/lib/data";
 import { ArrowDownRight, ExternalLink, Mail } from "lucide-react";
 import { useState } from "react";
 import ProfileModal from "./ProfileModal";
+import ResumeModal from "./RecruiterDashboard/ResumeModal";
 
 const LinkedinSvg = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -30,6 +31,7 @@ export default function HeroSection() {
   const { mode } = useMode();
   const [reachOpen, setReachOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [resumeOpen, setResumeOpen] = useState(false);
 
   if (!mode) return null;
   const { personal } = portfolioData;
@@ -93,16 +95,15 @@ export default function HeroSection() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-24">
           {isRecruiter ? (
-            <motion.a
-              href="/resume/Tushar_Karmakar_Resume.pdf"
-              download
+            <motion.button
+              onClick={() => setResumeOpen(true)}
               whileHover={{ y: -5 }}
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 rounded-full font-bold tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-[0_10px_25px_-5px_rgba(6,182,212,0.3)] hover:shadow-[0_20px_40px_-10px_rgba(6,182,212,0.5)]"
             >
               Download Resume
               <ArrowDownRight className="w-5 h-5" />
-            </motion.a>
+            </motion.button>
           ) : (
             <motion.a
               href="#contact"
@@ -174,6 +175,7 @@ export default function HeroSection() {
 
     {/* Profile Details Modal */}
     <ProfileModal isOpen={profileOpen} onClose={() => setProfileOpen(false)} />
+    <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </>
   );
 }

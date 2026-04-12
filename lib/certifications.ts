@@ -20,6 +20,7 @@ export async function getCertifications(): Promise<Certification[]> {
       status: "completed",
       fileName: "GenAIPrac-Certificate-Tushar Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Practitioner.png",
+      issuedDate: "March 2026",
       type: "pdf"
     },
     {
@@ -28,6 +29,7 @@ export async function getCertifications(): Promise<Certification[]> {
       status: "completed",
       fileName: "GenAIFund-Certificate-Tushar_20Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Fundamental.png",
+      issuedDate: "January 2026",
       type: "pdf"
     },
     {
@@ -36,20 +38,23 @@ export async function getCertifications(): Promise<Certification[]> {
       status: "completed",
       fileName: "GenAIBeg-Certificate-Tushar Karmakar.pdf",
       badge: "/data/badge/GEN-AI/Beginner.png",
+      issuedDate: "December 2025",
       type: "pdf"
     },
     {
       title: "Prompt Engineering for ChatGPT",
       issuer: "Coursera / Infogain Certified",
       status: "completed",
-      fileName: "PromptengineeringforChatGPT-Certificate.pdf",
+      fileName: "PromptengineeringforChatGPT-Certificate-Tushar Karmakar.pdf",
+      issuedDate: "March 2026",
       type: "pdf"
     },
     {
       title: "Incident Management",
       issuer: "Infogain",
       status: "completed",
-      fileName: "IncidentManagment-Certificate-Tushar.pdf",
+      fileName: "IncidentManagement-Certificate-Tushar_20Karmakar.pdf",
+      issuedDate: "April 2026",
       type: "pdf"
     },
     {
